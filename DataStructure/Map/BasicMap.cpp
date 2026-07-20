@@ -56,7 +56,7 @@ int main()
   // Remove element by Using erase() function
   cout << y << "Remove element by using erase() function." << reset << endl;
   people.erase("Barsha");
-  // cout << r << people.at("Barsha") << reset << endl;
+  // cerr << r << people.at("Barsha") << reset << endl;
 
   cout << endl;
   // Find size of a Map, empty or not and check key exist or not
