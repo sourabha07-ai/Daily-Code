@@ -1,4 +1,5 @@
-#include <iostream>
+// Use a comprehensive header to avoid missing include issues in some environments
+#include <bits/stdc++.h>
 using namespace std;
 
 // Take a positive integer input from the user and check if it is divisible by both 3 and
@@ -12,7 +13,11 @@ int main(){
     cout <<"Input: ";
     cin >> integer;
 
-    
+    if (integer % 15 == 0) {
+        cout << "Divisible by both 3 and 5";
+    } else {
+        cout << "Not divisible by both 3 and 5";
+    }
      
 
     return 0;
