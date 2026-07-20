@@ -7,21 +7,14 @@ int main()
     cout << "Enter n: ";
     cin >> n;
 
-    for (int i = n; i >= 1; i--)
-    {
-        // Print leading spaces
-        for (int j = 1; j <= n - i; j++)
-        {
+    for (int i = n; i >= 1; i--){
+        for (int j = 1; j <= n - i; j++){
             cout <<"  ";
         }
-
-        // Print stars
-        for (int k = 1; k <= 2 * i - 1; k++)
-        {
+        for (int k = 1; k <= 2 * i - 1; k++){
             cout << "* ";
         }
-
-        cout << endl;
+         cout << endl;
     }
 
     return 0;
