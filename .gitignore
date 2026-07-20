@@ -1,14 +1,19 @@
-# Ignore executable files
+# Executables
 *.exe
 
-# Ignore object files
+# Object files
 *.o
 *.obj
-*.out
 
-# Ignore VS Code settings
+# Debug files
+*.pdb
+
+# Build folders
+output/
+build/
+
+# VS Code
 .vscode/
 
-# Ignore build/output folders
-output/
-build/git
+# Temporary files
+*.tmp
