@@ -1,8 +1,51 @@
- # Ignore executable files
+# ==========================
+# C++ Build Files
+# ==========================
+
+# Executable files
 *.exe
+*.out
+*.app
 
-# Ignore output folder
-output/
+# Object files
+*.o
+*.obj
 
-# Ignore build folders
+# Static & Dynamic Libraries
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Debug files
+*.pdb
+*.idb
+
+# Precompiled headers
+*.gch
+
+# Build folders
 build/
+output/
+bin/
+Debug/
+Release/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# VS Code (optional)
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
