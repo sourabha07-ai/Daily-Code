@@ -1,37 +1,62 @@
-#include <iostream>
+ #include <iostream>
 #include <iomanip>
-using namespace std;
 
-char gradeCalculate(double avg){
-    if (avg >= 90) return 'A';
-    else if(avg >= 80 ) return 'B';
-    else if(avg >= 70) return 'C';
-    else if (avg >= 60) return 'D';
-    else return 'F';
+using namespace std;
+#define g "\033[32m"
+#define y "\033[33m"
+#define r "\033[31m"
+#define reset "\033[0m"
+
+
+ 
+char gradeCalculate(double avg) {
+    if (avg >= 90)
+        return 'A';
+    else if (avg >= 80)
+        return 'B';
+    else if (avg >= 70)
+        return 'C';
+    else if (avg >= 60)
+        return 'D';
+    else
+        return 'F';
 }
 
-int main(){
+int main() {
     int count;
-    double sum = 0,mark;
+    double sum = 0, mark;
+ 
+    do {
+        cout << "Enter number of subjects (1-6): ";
+        cin >> count;
 
-    cout <<"Enter: How Many Subjects: ";
-    cin >> count;
+        if (count < 1 || count > 6)
+            cout <<r << "Invalid!" <<reset << " Please enter a number between 1 and 6.\n\n";
 
-    if(count < 1 || count >6){
-        cout <<"Invalid! " <<"Try Again!" <<endl;
-        cout <<"Enter: How many Subject: ";
-       return 1;
-    }
+    } while (count < 1 || count > 6);
 
-    for(int i = 1; i <= count;i++){
-        cout <<"Subject "<<i <<": ";
-        cin >> mark;
+    
+    for (int i = 1; i <= count; i++) {
+
+        do {
+            cout << "Subject " << i << ": ";
+            cin >> mark;
+
+            if (mark < 0 || mark > 100)
+                cout <<r <<"Invalid!" <<reset << "Marks must be between 0 and 100." <<endl;
+
+        } while (mark < 0 || mark > 100);
+
         sum += mark;
     }
 
-    double average = sum /count;
-    cout <<fixed<< setprecision(2);
-    cout <<"Avarage Mark: "<<average <<endl;
-    cout <<"Grade: " <<gradeCalculate(average) <<endl;
+    // Calculate average
+    double average = sum / count;
 
+    // Display result
+    cout << fixed << setprecision(2);
+    cout << "\nAverage Mark: " <<g << average <<reset <<" %" << endl;
+    cout << "Grade: " <<y << gradeCalculate(average) <<reset << endl;
+
+    return 0;
 }
