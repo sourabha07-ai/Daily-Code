@@ -13,8 +13,8 @@ int main(){
     //decrement
     --num_2;
 
-    cout <<"Increment Number is: " <<i_num <<endl ;
-    cout <<"Update Number is: " <<num_2;
+    cout <<"Increment Number is: " << num_1 << endl;
+    cout <<"Update Number is: " << num_2;
 
     return 0;
 }

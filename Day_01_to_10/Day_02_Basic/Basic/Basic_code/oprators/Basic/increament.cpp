@@ -14,17 +14,17 @@ int main(){
 
     cout << endl;
 
-    int num = 10 ;
-    num = num++ + --num;//20
-    cout <<num <<endl;
+    int num = 10;
+    num++;
+    cout << num << endl;
 
     int num2 = 10;
-    num2 = --num2 + ++num2;//20
-    cout <<num2 <<endl;
+    --num2;
+    cout << num2 << endl;
 
     int num3 = 10;
-    num3 = ++num3 - ++num3;//0
-    cout << num3 <<endl;
+    ++num3;
+    cout << num3 << endl;
 
     return 0 ;
 }

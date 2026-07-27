@@ -5,7 +5,7 @@ using namespace std;
 /*Note: Although nested ternary operators work, it's usually better to use a normal if...else if...else statement for clarity.*/
 
 int main(){
-    int time ;
+    int time = 10;
 
     string message = (time < 12) ? "Good Morning" 
                  : (time < 18) ? "Good afternoon" 

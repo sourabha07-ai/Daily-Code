@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
   int num1,num2,num3;
-  cout <<"Numbers Are: "
+  cout <<"Numbers Are: ";
   cin >>num1>>num2>>num3;
 
   cout<< ((num1 > num2 && num1 > num3) ? "first number is great"

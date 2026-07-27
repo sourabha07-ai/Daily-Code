@@ -30,7 +30,7 @@ int main()
     }
 
     // this is for printing...
-    if (count == 100 && num == 0 || num==1 )
+    if (num == 0 || num == 1)
     {
         cout << "Unique Number." << endl;
     }
