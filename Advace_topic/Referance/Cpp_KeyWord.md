@@ -8,7 +8,7 @@ A list of useful keywords in C++ can be found in the table below.
 | `and_eq` | An alternative way to write the &= assignment operator |
 | `auto` | Automatically detects the type of a variable based on the value you assign to it |
 | `bitand` | An alternative way to write the & bitwise operator |
-| `bitor` | An alternative way to write the | bitwise OR operator |
+| `bitor` | An alternative way to write the bitwise OR operator |
 | `bool` | A data type that can only store true or false values |
 | `break` | Breaks out of a loop or a switch block |
 | `case` | Marks a block of code in switch statements |
@@ -36,8 +36,8 @@ A list of useful keywords in C++ can be found in the table below.
 | `new` | Reserves dynamic memory |
 | `not` | An alternative way to write the logical ! operator |
 | `not_eq` | An alternative way to write the != comparison operator |
-| `or` | An alternative way to write the logical || operator |
-| `or_eq` | An alternative way to write the |= assignment operator |
+| `or` | An alternative way to write the logical  operator |
+| `or_eq` | An alternative way to write the assignment operator |
 | `private` | An access modifier which makes a member only accessible within the declared class |
 | `protected` | An access modifier which makes a member only accessible within the declared class and its children |
 | `public` | An access modifier which makes a member accessible from anywhere |
