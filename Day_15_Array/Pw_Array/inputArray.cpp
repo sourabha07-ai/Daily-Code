@@ -15,9 +15,8 @@ int main(){
         cin >>arr[i]; 
     }
     cout <<endl;
-    
     cout <<"array is: ";
-
+    
     for(int num : arr){
         cout <<num <<" ";
     }
