@@ -3,6 +3,7 @@
 This file contains the full source code for `practice_Q13.cpp` through `practice_Q30.cpp`.
 
 ## practice_Q13.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -28,6 +29,7 @@ int main(){
 ```
 
 ## practice_Q14.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -80,6 +82,7 @@ else{
 ```
 
 ## practice_Q15.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -101,17 +104,18 @@ int main(){
     int digits = n % 10;
     product = product * digits;
     n = n / 10; 
-            
+          
 }
         cout <<product <<endl;
 
-      
+    
 
 
 }
 ```
 
 ## practice_Q16.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -137,6 +141,7 @@ int main(){
 ```
 
 ## practice_Q17.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -162,6 +167,7 @@ int main(){
 ```
 
 ## practice_Q18.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -186,13 +192,14 @@ int main(){
     }
     if(count == n) cout <<"Perfect Number."<<endl;
     else cout <<"Not a Perfect Number." <<endl;
-    
+  
 
     return 0;
 }
 ```
 
 ## practice_Q19.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -211,6 +218,7 @@ int main(){
 ```
 
 ## practice_Q20.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -229,21 +237,20 @@ int main(){
 if(n >= 1) cout <<first_term <<" " ;
 
 if(n >= 2) cout <<second_term<<" ";
-     
+   
 for(int i = 3; i <= n; i++){
     int next = first_term + second_term;
     cout << next <<" ";
     first_term = second_term;
     second_term = next;
-    
+  
    }
 
-}    
-    
-    
+}
 ```
 
 ## practice_Q21.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -269,6 +276,7 @@ int main(){
 ```
 
 ## practice_Q22.cpp
+
 ```cpp
 #include<iostream>
 #include<algorithm>
@@ -295,13 +303,14 @@ int main(){
         cout <<"Not Palindrome";
     }
 
-      
+    
 
     return 0;
 }
 ```
 
 ## practice_Q23.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -323,13 +332,14 @@ int main(){
     for(int i = 1; i <= k;i++){
         for(int j = 1;j <= k; j++){
             cout <<i <<" " <<j <<endl ;
-        }     
+        }   
     }
 
 }
 ```
 
 ## practice_Q24.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -356,6 +366,7 @@ int main(){
 ```
 
 ## practice_Q25.cpp
+
 ```cpp
  #include <iostream>
 using namespace std;
@@ -388,6 +399,7 @@ int main() {
 ```
 
 ## practice_Q26.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -424,6 +436,7 @@ int main() {
 ```
 
 ## practice_Q27.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -447,6 +460,7 @@ int main(){
 ```
 
 ## practice_Q28.cpp
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -492,6 +506,7 @@ int main()
 ```
 
 ## practice_Q29.cpp
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -525,6 +540,6 @@ int main(){
     }
 
     cout <<power<<endl;
-    
+  
 }
 ```
