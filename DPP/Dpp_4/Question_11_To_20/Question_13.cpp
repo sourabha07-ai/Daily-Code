@@ -12,10 +12,24 @@ Output:
 */
 
 int main(){
-    int x;
-    cout <<"Enter X: ";
-    cin >> x;
+    int n;
+    cout <<"Enter N: ";
+    cin >> n;
 
-    
+    //Rows
+    for(int i = 1; i <=n;i++){
+         
+
+        //Condition
+        // Odd rows print n times, even rows print n-1 times
+        int count = (i % 2 == 0) ? n - 1 : n;
+
+        
+        //Column
+        for(int j = 1; j <= count; j++){
+            cout << i <<" ";
+        }
+        cout <<endl;
+    }
 
 }
