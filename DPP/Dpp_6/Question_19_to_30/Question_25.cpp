@@ -10,7 +10,7 @@ Sample Input 2: {1, 2, 3, 4} ⇒ Output: Not Palindrome
 #include <vector>
 using namespace std;
 
-void checkPalindrom(vector<int>& arr) {
+void checkPalindrome(vector<int>& arr) {
     int n = arr.size();
 
     for (int i = 0; i < n / 2; i++) {
@@ -31,7 +31,7 @@ int main() {
     cout << "Original array_1: ";
     for (int v : v1) cout << v << " ";
     cout << endl;
-    checkPalindrom(v1);
+    checkPalindrome(v1);
 
     cout << endl;
 
@@ -40,7 +40,7 @@ int main() {
     cout << "Original array_2: ";
     for (int v : v2) cout << v << " ";
     cout << endl;
-    checkPalindrom(v2);
+    checkPalindrome(v2);
 
     return 0;
 }
