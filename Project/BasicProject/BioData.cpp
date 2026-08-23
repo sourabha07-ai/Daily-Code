@@ -2,10 +2,14 @@
 #include <iomanip>
 #include <string>
 #include <limits>
+#include <algorithm>
 using namespace std;
 
 const int MAX = 100;
 
+//------------------------------------
+// Student Structure
+//------------------------------------
 struct Student {
     int rollNo;
     string name;
@@ -13,142 +17,227 @@ struct Student {
     float marks;
 };
 
+//------------------------------------
+// Global Variables
+//------------------------------------
 Student students[MAX];
 int countStudent = 0;
 
-//---------------------------
-// Input Validation
-//---------------------------
+//------------------------------------
+// Clear Input Buffer
+//------------------------------------
 void clearInput() {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
+//------------------------------------
+// Integer Input Validation
+//------------------------------------
 int inputInt(string message) {
+
     int value;
 
     while (true) {
+
         cout << message;
         cin >> value;
 
         if (cin.fail()) {
+
             cout << "Invalid input! Enter numbers only.\n";
             clearInput();
+
         } else {
+
             return value;
         }
     }
 }
 
+//------------------------------------
+// Float Input Validation
+//------------------------------------
 float inputFloat(string message) {
+
     float value;
 
     while (true) {
+
         cout << message;
         cin >> value;
 
         if (cin.fail()) {
+
             cout << "Invalid input! Enter numbers only.\n";
             clearInput();
+
         } else {
+
             return value;
         }
     }
 }
 
-//---------------------------
-// Grade
-//---------------------------
+//------------------------------------
+// Calculate Grade
+//------------------------------------
 char calculateGrade(float marks) {
+
     if (marks >= 90)
         return 'A';
+
     else if (marks >= 80)
         return 'B';
+
     else if (marks >= 70)
         return 'C';
+
     else if (marks >= 60)
         return 'D';
+
     else
         return 'F';
 }
 
-//---------------------------
-// Duplicate Roll Check
-//---------------------------
+//------------------------------------
+// Check Duplicate Roll Number
+//------------------------------------
 bool isDuplicateRoll(int roll) {
+
     for (int i = 0; i < countStudent; i++) {
+
         if (students[i].rollNo == roll)
             return true;
     }
+
     return false;
 }
 
-//---------------------------
+//------------------------------------
+// Sort Students by Roll Number
+// Ascending Order
+//------------------------------------
+void sortStudentsByRoll() {
+
+    for (int i = 0; i < countStudent - 1; i++) {
+
+        for (int j = 0; j < countStudent - i - 1; j++) {
+
+            if (students[j].rollNo > students[j + 1].rollNo) {
+
+                swap(students[j], students[j + 1]);
+            }
+        }
+    }
+}
+
+//------------------------------------
 // Add Student
-//---------------------------
+//------------------------------------
 void addStudent() {
 
-    if (countStudent == MAX) {
+    if (countStudent >= MAX) {
+
         cout << "Student record is full.\n";
         return;
     }
 
     int roll;
 
+    //--------------------------------
+    // Roll Number
+    //--------------------------------
     while (true) {
+
         roll = inputInt("Enter Roll Number: ");
 
-        if (roll <= 0)
+        if (roll <= 0) {
+
             cout << "Roll number must be positive.\n";
-        else if (isDuplicateRoll(roll))
+        }
+
+        else if (isDuplicateRoll(roll)) {
+
             cout << "Roll number already exists.\n";
-        else
+        }
+
+        else {
+
             break;
+        }
     }
 
     students[countStudent].rollNo = roll;
 
+    //--------------------------------
+    // Name
+    //--------------------------------
     clearInput();
 
     cout << "Enter Name: ";
     getline(cin, students[countStudent].name);
 
+    //--------------------------------
+    // Age
+    //--------------------------------
     while (true) {
-        students[countStudent].age = inputInt("Enter Age: ");
+
+        students[countStudent].age =
+            inputInt("Enter Age: ");
 
         if (students[countStudent].age >= 5 &&
-            students[countStudent].age <= 100)
+            students[countStudent].age <= 100) {
+
             break;
+        }
 
         cout << "Age must be between 5 and 100.\n";
     }
 
+    //--------------------------------
+    // Marks
+    //--------------------------------
     while (true) {
-        students[countStudent].marks = inputFloat("Enter Marks (0-100): ");
+
+        students[countStudent].marks =
+            inputFloat("Enter Marks (0-100): ");
 
         if (students[countStudent].marks >= 0 &&
-            students[countStudent].marks <= 100)
+            students[countStudent].marks <= 100) {
+
             break;
+        }
 
         cout << "Marks must be between 0 and 100.\n";
     }
 
+    //--------------------------------
+    // Increase Student Count
+    //--------------------------------
     countStudent++;
+
+    //--------------------------------
+    // Sort by Roll Number
+    //--------------------------------
+    sortStudentsByRoll();
 
     cout << "\nStudent Added Successfully.\n";
 }
 
-//---------------------------
-// Display
-//---------------------------
+//------------------------------------
+// Display Students
+//------------------------------------
 void displayStudents() {
 
     if (countStudent == 0) {
+
         cout << "\nNo Records Found.\n";
         return;
     }
 
     cout << "\n";
+
     cout << left
          << setw(10) << "Roll"
          << setw(25) << "Name"
@@ -166,28 +255,41 @@ void displayStudents() {
              << setw(25) << students[i].name
              << setw(10) << students[i].age
              << setw(10) << students[i].marks
-             << setw(10) << calculateGrade(students[i].marks)
+             << setw(10)
+             << calculateGrade(students[i].marks)
              << endl;
     }
 }
 
-//---------------------------
-// Search
-//---------------------------
+//------------------------------------
+// Search Student
+//------------------------------------
 void searchStudent() {
 
-    int roll = inputInt("Enter Roll Number: ");
+    int roll =
+        inputInt("Enter Roll Number: ");
 
     for (int i = 0; i < countStudent; i++) {
 
         if (students[i].rollNo == roll) {
 
             cout << "\nStudent Found\n";
-            cout << "Roll No : " << students[i].rollNo << endl;
-            cout << "Name    : " << students[i].name << endl;
-            cout << "Age     : " << students[i].age << endl;
-            cout << "Marks   : " << students[i].marks << endl;
-            cout << "Grade   : " << calculateGrade(students[i].marks) << endl;
+
+            cout << "Roll No : "
+                 << students[i].rollNo << endl;
+
+            cout << "Name    : "
+                 << students[i].name << endl;
+
+            cout << "Age     : "
+                 << students[i].age << endl;
+
+            cout << "Marks   : "
+                 << students[i].marks << endl;
+
+            cout << "Grade   : "
+                 << calculateGrade(students[i].marks)
+                 << endl;
 
             return;
         }
@@ -196,43 +298,103 @@ void searchStudent() {
     cout << "Student Not Found.\n";
 }
 
-//---------------------------
-// Update
-//---------------------------
+//------------------------------------
+// Update Student
+//------------------------------------
 void updateStudent() {
 
-    int roll = inputInt("Enter Roll Number: ");
+    //--------------------------------
+    // Previous Roll Number
+    //--------------------------------
+    int oldRoll =
+        inputInt("Enter Previous Roll Number: ");
 
     for (int i = 0; i < countStudent; i++) {
 
-        if (students[i].rollNo == roll) {
+        if (students[i].rollNo == oldRoll) {
 
+            //--------------------------------
+            // New Roll Number
+            //--------------------------------
+            int newRoll;
+
+            while (true) {
+
+                newRoll =
+                    inputInt("Enter New Roll Number: ");
+
+                if (newRoll <= 0) {
+
+                    cout << "Roll number must be positive.\n";
+                }
+
+                else if (newRoll != oldRoll &&
+                         isDuplicateRoll(newRoll)) {
+
+                    cout << "Roll number already exists. "
+                         << "Enter another roll number.\n";
+                }
+
+                else {
+
+                    break;
+                }
+            }
+
+            //--------------------------------
+            // Update Roll Number
+            //--------------------------------
+            students[i].rollNo = newRoll;
+
+            //--------------------------------
+            // Update Name
+            //--------------------------------
             clearInput();
 
             cout << "Enter New Name: ";
             getline(cin, students[i].name);
 
+            //--------------------------------
+            // Update Age
+            //--------------------------------
             while (true) {
-                students[i].age = inputInt("Enter New Age: ");
+
+                students[i].age =
+                    inputInt("Enter New Age: ");
 
                 if (students[i].age >= 5 &&
-                    students[i].age <= 100)
-                    break;
+                    students[i].age <= 100) {
 
-                cout << "Invalid Age.\n";
+                    break;
+                }
+
+                cout << "Age must be between 5 and 100.\n";
             }
 
+            //--------------------------------
+            // Update Marks
+            //--------------------------------
             while (true) {
-                students[i].marks = inputFloat("Enter New Marks: ");
+
+                students[i].marks =
+                    inputFloat("Enter New Marks: ");
 
                 if (students[i].marks >= 0 &&
-                    students[i].marks <= 100)
-                    break;
+                    students[i].marks <= 100) {
 
-                cout << "Invalid Marks.\n";
+                    break;
+                }
+
+                cout << "Marks must be between 0 and 100.\n";
             }
 
+            //--------------------------------
+            // Sort Again
+            //--------------------------------
+            sortStudentsByRoll();
+
             cout << "\nStudent Updated Successfully.\n";
+
             return;
         }
     }
@@ -240,23 +402,35 @@ void updateStudent() {
     cout << "Student Not Found.\n";
 }
 
-//---------------------------
-// Delete
-//---------------------------
+//------------------------------------
+// Delete Student
+//------------------------------------
 void deleteStudent() {
 
-    int roll = inputInt("Enter Roll Number: ");
+    int roll =
+        inputInt("Enter Roll Number: ");
 
     for (int i = 0; i < countStudent; i++) {
 
         if (students[i].rollNo == roll) {
 
-            for (int j = i; j < countStudent - 1; j++)
-                students[j] = students[j + 1];
+            //--------------------------------
+            // Shift Students Left
+            //--------------------------------
+            for (int j = i;
+                 j < countStudent - 1;
+                 j++) {
 
+                students[j] = students[j + 1];
+            }
+
+            //--------------------------------
+            // Decrease Count
+            //--------------------------------
             countStudent--;
 
             cout << "\nStudent Deleted Successfully.\n";
+
             return;
         }
     }
@@ -264,9 +438,9 @@ void deleteStudent() {
     cout << "Student Not Found.\n";
 }
 
-//---------------------------
-// Main
-//---------------------------
+//------------------------------------
+// Main Function
+//------------------------------------
 int main() {
 
     int choice;
@@ -274,6 +448,7 @@ int main() {
     do {
 
         cout << "\n========== STUDENT MANAGEMENT SYSTEM ==========\n";
+
         cout << "1. Add Student\n";
         cout << "2. Display Students\n";
         cout << "3. Search Student\n";
@@ -281,7 +456,8 @@ int main() {
         cout << "5. Delete Student\n";
         cout << "6. Exit\n";
 
-        choice = inputInt("Enter Choice: ");
+        choice =
+            inputInt("Enter Choice: ");
 
         switch (choice) {
 
