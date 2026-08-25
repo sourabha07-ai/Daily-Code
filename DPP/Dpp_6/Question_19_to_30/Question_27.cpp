@@ -6,17 +6,6 @@ Constraints: 2 ≤ N ≤ 105, −109 ≤ arr[i] ≤ 109.
 Sample Input: arr = {5, 9, 2} ⇒ Output: {4, 7, 3}
 Explanation: |5 − 9| = 4, |9 −2| = 7, |2−5| = 3.
 */
-
-#include <iostream>
-#include<vector>
-/* 
-Minimum Absolute Difference. Find the minimum absolute difference between 
-any two adjacent elements in the given array.
-Constraints: 2 ≤ N ≤ 105, −109 ≤ arr[i] ≤ 109.
-Sample Input: arr = {10, 20, 15, 30, 28} ⇒ Output: 2
-Explanation: Differences: |10 − 20| = 10, |20 − 15| = 5, |15 − 30| = 15, 
-|30 − 28| = 2. The minimum is 2.
-*/
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -48,32 +37,4 @@ int main(){
      Difference(arr);
 
     return 0;
-}
-using namespace std;
-vector<int> absoluteValue(vector<int>& arr){
-    vector<int> result;
-    int n = arr.size();
-    int absValue = 0;
-    for(int i = 0; i < n;i++){
-        if(i < n-1){
-            absValue =abs(arr[i] - arr[i+1]);  
-            result.push_back(absValue);    
-        }else{
-           absValue = abs(arr[i] - arr[0]);
-           result.push_back(absValue);
-        }
-    }
-    return result;
-}
-
-int main(){
-    vector<int> arr = {5,9,2};
-    cout<<"Your array: ";
-    for(int a:arr) cout << a <<" ";
-    cout <<endl;
-
-    vector<int> absolute_value = absoluteValue(arr);
-    cout <<"Absolute Value is: ";
-    for(int a:absolute_value) cout <<a <<" ";
-    cout <<endl;
 }
