@@ -1,7 +1,7 @@
 #include <iostream>
-using namespace std; 
+using namespace std;
 
 int main(){
-    cout <<"hello world!";
-    return 0;
+   int arr[2][3] = {1,2,3,4,5};
+   cout << arr[1][1] <<" "<<arr[1][2] <<endl; 
 }
