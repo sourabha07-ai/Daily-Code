@@ -1,0 +1,174 @@
+:root {
+    --bg: #0f1117;
+    --card: #181c26;
+    --text: #e8eaf0;
+    --text-dim: #8a91a5;
+    --accent: #4f8cff;
+    --green: #2ecc71;
+    --amber: #f1c40f;
+    --red: #e74c3c;
+    --border: #2a3040;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    padding: 16px;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 32px 28px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+}
+
+.display {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: clamp(2rem, 9vw, 3.25rem);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+}
+
+.state-label {
+    margin: 8px 0 28px;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+}
+
+.state-label.running { color: var(--green); }
+.state-label.paused  { color: var(--amber); }
+
+.controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.btn {
+    min-width: 88px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    background: #232837;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease,
+                border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+    background: #2c3345;
+    border-color: #3a4258;
+}
+
+.btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.btn-start:disabled,
+.btn-resume:disabled {
+    background: #232837;
+}
+
+.btn-start:not(:disabled)  { background: var(--green); border-color: var(--green); color: #06281a; }
+.btn-pause:not(:disabled)  { background: var(--amber); border-color: var(--amber); color: #3a2f04; }
+.btn-resume:not(:disabled) { background: var(--accent); border-color: var(--accent); color: #0a1630; }
+.btn-reset:not(:disabled)  { background: var(--red);   border-color: var(--red);   color: #2b0a06; }
+.btn-lap:not(:disabled)    { border-color: var(--accent); color: var(--accent); }
+
+.laps {
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    text-align: left;
+}
+
+.laps-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.lap-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.lap-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 14px;
+    background: #1e2330;
+    border-radius: 8px;
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 0.9rem;
+}
+
+.lap-list li .lap-num {
+    color: var(--text-dim);
+}
+
+.lap-empty {
+    justify-content: center;
+    color: var(--text-dim);
+    background: transparent;
+}
+
+.server-status {
+    min-height: 1.2em;
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--red);
+    text-align: center;
+}
+
+@media (max-width: 380px) {
+    .card { padding: 28px 18px 20px; }
+    .btn { min-width: 72px; padding: 10px 14px; }
+}

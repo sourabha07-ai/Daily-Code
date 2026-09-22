@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch &middot; C++ Backend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <h1 class="title">STOPWATCH</h1>
+
+        <p id="display" class="display" aria-live="polite">00:00:00.000</p>
+        <p id="stateLabel" class="state-label">IDLE</p>
+
+        <div class="controls">
+            <button id="startBtn" class="btn btn-start" type="button">Start</button>
+            <button id="pauseBtn" class="btn btn-pause" type="button">Pause</button>
+            <button id="resumeBtn" class="btn btn-resume" type="button">Resume</button>
+            <button id="resetBtn" class="btn btn-reset" type="button">Reset</button>
+        </div>
+
+        <div class="controls">
+            <button id="lapBtn" class="btn btn-lap" type="button">Lap</button>
+        </div>
+
+        <section class="laps">
+            <h2 class="laps-title">Lap Records</h2>
+            <ol id="lapList" class="lap-list">
+                <li class="lap-empty">No laps yet</li>
+            </ol>
+        </section>
+
+        <p id="serverStatus" class="server-status" role="status"></p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
